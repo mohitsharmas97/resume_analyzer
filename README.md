@@ -1,52 +1,49 @@
-# AI-Powered Resume Analyzer
+
+# Resume Analyzer Web App
+
+A **Resume Analyzer** built with **Flask** and **NLP tools** to evaluate resumes for skills, readability, and grammar. It provides users with a **score and actionable feedback** to improve their resumes.
+
+---
 <img width="1117" height="650" alt="Screenshot 2025-10-18 191847" src="https://github.com/user-attachments/assets/bf598974-d079-4425-8c99-2726553b14af" />
 <img width="1161" height="934" alt="Screenshot 2025-10-18 192137" src="https://github.com/user-attachments/assets/9187d32f-76a5-4541-b733-5aff40bcaf9c" />
 
+## Features
 
-
-##  Description
-**IntelliResume** is an AI-driven resume analysis system built using **Flask** and **NLP**.  
-It evaluates resumes based on **skills, grammar accuracy, and readability** — giving both job seekers and recruiters actionable insights to improve resume quality.
-
----
-
-##  Features
--  **Multi-format Upload:** Supports `.pdf` and `.docx` resumes  
--  **Skill Extraction:** Detects technical skills like Python, React, Flask, etc.  
--  **Grammar Checking:** Uses LanguageTool to detect and score grammatical correctness  
--  **Readability Analysis:** Evaluates how easy your resume is to read using Flesch Reading Ease  
--  **Composite Scoring:** Combines Skills + Grammar + Readability for a final score  
--  **Actionable Feedback:** Provides detailed improvement suggestions  
+- Upload resumes in **PDF** or **DOCX** format.
+- **Skills Analysis**: Matches your resume content against a predefined list of industry-standard technical skills.
+- **Readability Score**: Measures how easy it is to read your resume using the Flesch Reading Ease metric.
+- **Grammar Check**: Detects grammar and spelling errors.
+- **Overall Score**: Combines skills, readability, and grammar into a final score.
+- **Personalized Feedback**: Suggestions for improvement based on analysis.
 
 ---
 
-##  Tech Stack
+## Technology Stack
 
-| Component | Technology Used |
-|------------|----------------|
-| Backend | Flask |
-| NLP Engine | spaCy |
-| Grammar Checking | LanguageTool |
-| Readability | Textstat |
-| File Parsing | PyPDF2, docx2txt |
-| Language Processing | Regex, Python |
-| Frontend | HTML + Jinja2 Templates |
+- **Backend**: Flask
+- **NLP & Text Processing**: spaCy, regex, docx2txt, PyPDF2
+- **Grammar Checking**: language_tool_python
+- **Readability Analysis**: textstat
+- **Frontend**: HTML/CSS (Flask templates)
 
 ---
 
-##  System Architecture
+## How it Works
 
 ```mermaid
 flowchart TD
-    A["User Uploads Resume (.pdf/.docx)"] --> B["System Extracts Text"]
-    B --> C["NLP Processes Resume"]
-    C --> D["Matches with Job Description"]
-    D --> E["ATS Score Generated"]
-    E --> F["User Gets Feedback / Ranking"]
+    A[User Uploads Resume PDF DOCX] --> B[Extract Text]
+    B --> C[Preprocess Text: cleaning, lowercase]
+    C --> D[Skills Analysis using spaCy]
+    C --> E[Readability Analysis using textstat]
+    C --> F[Grammar Check using LanguageTool]
+    D --> G[Compute Skills Score]
+    E --> H[Compute Readability Score]
+    F --> I[Compute Grammar Score]
+    G --> J[Final Score Calculation]
+    H --> J
+    I --> J
+    J --> K[Generate Feedback]
+    K --> L[Display Results on Web Page]
 
-    %% Optional: Add decision step
-    D --> G{"Match Threshold Met?"}
-    G -->|Yes| F
-    G -->|No| H["Suggest Improvements"]
-    H --> F
 
