@@ -1,4 +1,8 @@
 # AI-Powered Resume Analyzer
+<img width="1117" height="650" alt="Screenshot 2025-10-18 191847" src="https://github.com/user-attachments/assets/bf598974-d079-4425-8c99-2726553b14af" />
+<img width="1161" height="934" alt="Screenshot 2025-10-18 192137" src="https://github.com/user-attachments/assets/9187d32f-76a5-4541-b733-5aff40bcaf9c" />
+
+
 
 ##  Description
 **IntelliResume** is an AI-driven resume analysis system built using **Flask** and **NLP**.  
@@ -45,3 +49,4 @@ flowchart TD
     G -->|Yes| F
     G -->|No| H["Suggest Improvements"]
     H --> F
+
